@@ -22,8 +22,7 @@ function eventplanner() {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-  var currenthour = dayjs().format('hh')
-  console.log(currenthour);
+  var currenthour = parseInt(dayjs().format('H'));
   var currenttime = parseInt(getElementbyId());
 
   if(currenttime === currenthour){
