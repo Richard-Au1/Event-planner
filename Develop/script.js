@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var timeDisplayEl = $('#time-display');
-
+var blockEl = document.
 // TODO: Add code to display the current date in the header of the page.
 function displayTime() {
   var currenttime = dayjs().format('dddd MMM DD, YYYY [at] hh:mm:ss a');
@@ -26,17 +26,17 @@ function eventplanner() {
   var currenttime = parseInt(getElementbyId());
 
   if(currenttime === currenthour){
-    el.classList.add("present");
-    el.classList.remove("past");
-    el.classList.remove("future");
+    el.row.add("present");
+    el.row.remove("past");
+    el.row.remove("future");
   }else if(currenttime < currenthour){
-    el.classList.add("past");
-    el.classList.remove("present");
-    el.classList.remove("future");
+    el.row.add("past");
+    el.row.remove("present");
+    el.row.remove("future");
   }else{
-    el.classList.add("future");
-    el.classList.remove("present");
-    el.classList.remove("past");
+    el.row.add("future");
+    el.row.remove("present");
+    el.row.remove("past");
   }
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
