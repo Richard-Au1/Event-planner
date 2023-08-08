@@ -1,6 +1,8 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+// allows time to be displayed on the webpage.
 var timeDisplayEl = $('#time-display');
 
 // TODO: Add code to display the current date in the header of the page.
@@ -18,8 +20,9 @@ function eventplanner() {
   // useful when saving the description in local storage?
   $(".saveBtn").click(function (event) {
     event.preventDefault();
-    var value = $(this).siblings(".time-block").val();
-    var time = $(this).parent().attr("id").split("-")[1];
+    var value = $(this).siblings(".description").val();
+    var time = $(this).parent().attr("id");
+    console.log(value);
     console.log(time);
     localStorage.setItem(time, value);
   });
@@ -34,10 +37,10 @@ function eventplanner() {
   console.log(currenthour);
 
   $(".time-block").each(function(){
-    var timedivs = $(this).attr("id").split("-")[1];
+    var timedivs = $(this).attr("id");
     console.log(timedivs);
 
-    if(timedivs === currenthour){
+    if(timedivs == currenthour){
       $(this).removeClass("future");
       $(this).removeClass("past");
       $(this).addClass("present");
@@ -57,15 +60,15 @@ function eventplanner() {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  $("#9 .time-block").val(localStorage.getItem("09"));
-  $("#10 .time-block").val(localStorage.getItem("10"));
-  $("#11 .time-block").val(localStorage.getItem("11"));
-  $("#12 .time-block").val(localStorage.getItem("12"));
-  $("#13 .time-block").val(localStorage.getItem("13"));
-  $("#14 .time-block").val(localStorage.getItem("14"));
-  $("#15 .time-block").val(localStorage.getItem("15"));
-  $("#16 .time-block").val(localStorage.getItem("16"));
-  $("#17 .time-block").val(localStorage.getItem("17"));
+  $("#09 .description").val(localStorage.getItem("09"));
+  $("#10 .description").val(localStorage.getItem("10"));
+  $("#11 .description").val(localStorage.getItem("11"));
+  $("#12 .description").val(localStorage.getItem("12"));
+  $("#13 .description").val(localStorage.getItem("13"));
+  $("#14 .description").val(localStorage.getItem("14"));
+  $("#15 .description").val(localStorage.getItem("15"));
+  $("#16 .description").val(localStorage.getItem("16"));
+  $("#17 .description").val(localStorage.getItem("17"));
 };
 
 displayTime();
