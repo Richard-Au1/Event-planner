@@ -20,7 +20,7 @@ function eventplanner() {
     event.preventDefault();
     var value = $(this).siblings(".time-block").val();
     var time = $(this).parent().attr("id").split("-")[1];
-    console.lop(time);
+    console.log(time);
     localStorage.setItem(time, value);
   });
 
